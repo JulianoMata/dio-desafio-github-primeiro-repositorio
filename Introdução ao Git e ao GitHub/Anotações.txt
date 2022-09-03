@@ -1,0 +1,11 @@
+Link para download do git:
+https://git-scm.com/download/win
+
+ - O Git Bash é um terminal extendido para otimizar o uso do Git.
+
+Link editor Markdown online:
+https://dillinger.io/
+
+Link documentação GitHub:
+https://docs.github.com/pt
+
