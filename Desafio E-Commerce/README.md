@@ -2,9 +2,9 @@
 # Projeto E-commerce 
 ## DIO - Bootcamp
 
-``Diagrama ERR`` utilizando  ['MySQL Worbench'](https://www.mysql.com/products/workbench/)
+``Diagrama ER`` utilizando  ['MySQL Worbench'](https://www.mysql.com/products/workbench/)
 
-Diagrama EER nada mais é do que modelo de dados conceptual que descreve os dados como sendo entidades, atributos e relacionamentos entre tabelas. Entidades são objectos ou conceitos do mundo real.
+Diagrama ER nada mais é do que modelo de dados conceptual que descreve os dados como sendo entidades, atributos e relacionamentos entre tabelas. Entidades são objetos ou conceitos do mundo real.
 
 Levantamento de Requisitos
 ### Produto
@@ -26,11 +26,11 @@ de carência para devolução do produto
 ### Pedido
 • O pedidos são criados por clientes e possuem informações de
 compra, endereço e status da entrega
-• Um produto ou mais compoem o pedido
+• Um produto ou mais compõem o pedido
 • O pedido pode ser cancelado
 
 ### Fornecedor
-• Fornecedor pode ter vários produtos e produtos vários fornedores possibilitando concorrência
+• Fornecedor pode ter vários produtos e produtos vários fornecedores possibilitando concorrência
 
 ### Estoque
 • Relacionado diretamente a produtos. Quantidade deve estar no relacionamento.
@@ -43,5 +43,4 @@ pode ter as duas informações
 pagamento
 
 • ``Entrega`` – Possui status e código de rastreio
-
 

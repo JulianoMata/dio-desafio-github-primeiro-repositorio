@@ -2,9 +2,9 @@
 # Projeto Oficina 
 ## DIO - Bootcamp
 
-``Diagrama ERR`` utilizando  ['MySQL Worbench'](https://www.mysql.com/products/workbench/)
+``Diagrama ER`` utilizando  ['MySQL Worbench'](https://www.mysql.com/products/workbench/)
 
-Diagrama EER é o modelo de dados conceitual que descreve os dados como sendo entidades, atributos e relacionamentos entre tabelas. Entidades são objectos ou conceitos do mundo real.
+Diagrama ER é o modelo de dados conceitual que descreve os dados como sendo entidades, atributos e relacionamentos entre tabelas. Entidades são objetos ou conceitos do mundo real.
 
 ## Desafio: 
 
@@ -32,5 +32,5 @@ Cria o esquema conceitual para o contexto de oficina com base na narrativa forne
 
 * Cada ``OS`` possui: n°, data de emissão, um valor, status e uma data para conclusão dos trabalhos.
 
-#### Obs: OS corresponde a Ordem de Serviço
+#### Obs: "OS" corresponde a "Ordem de Serviço"
 
