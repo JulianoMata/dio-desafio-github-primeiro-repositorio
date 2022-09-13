@@ -61,33 +61,30 @@ SELECT * FROM works_on;
 */
 
 -- Gerente e seu departamento
-SELECT Ssn, Fname, Dname FROM employee e, department d WHERE (e.Ssn = d.Mgr_ssn);
+SELECT Ssn, Fname, Dname 
+	FROM employee e, department d 
+		WHERE (e.Ssn = d.Mgr_ssn);
 
 -- Empregados e dependentes
-SELECT Fname, Dependent_name, Relationship FROM employee, dependent WHERE Essn = Ssn;
+SELECT Fname, Dependent_name, Relationship 
+	FROM employee, dependent 
+		WHERE Essn = Ssn;
 
 --
-SELECT Bdate, Address FROM employee WHERE Fname = 'John' AND Minit = 'B' AND Lname = 'Smith';
+SELECT Bdate, Address 
+	FROM employee 
+		WHERE Fname = 'John' AND Minit = 'B' AND Lname = 'Smith';
 
 -- Recuoperando departamento específico
 SELECT * FROM department WHERE Dname = 'Research';
 
 --
-SELECT Fname, Lname, Address FROM employee, department WHERE Dname = 'Research' AND Dnumber = Dno;
+SELECT Fname, Lname, Address 
+	FROM employee, department 
+		WHERE Dname = 'Research' AND Dnumber = Dno;
 
 --
-SELECT Pname, Ssn, Fname, Hours FROM project, works_on, employee WHERE Pnumber = Pno AND Essn = Ssn;
-
---
-
-
-
-
-
-
-
-
-
-                         
-
+SELECT Pname, Ssn, Fname, Hours 
+	FROM project, works_on, employee 
+		WHERE Pnumber = Pno AND Essn = Ssn;
 

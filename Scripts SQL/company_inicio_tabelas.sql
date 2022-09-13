@@ -69,11 +69,11 @@ CREATE TABLE project(
 -- DROP TABLE works_on; 
 CREATE TABLE works_on(
 	Essn CHAR(9) NOT NULL,
-    Pnumber INT NOT NULL,
+    Pno INT NOT NULL,
     Hours DECIMAL(3, 1) NOT NULL,
-    PRIMARY KEY (Essn, Pnumber), 
+    PRIMARY KEY (Essn, Pno), 
     CONSTRAINT fk_works_on_employee FOREIGN KEY (Essn) REFERENCES employee (Ssn),
-    CONSTRAINT fk_works_on_project FOREIGN KEY (Pnumber) REFERENCES project (Pnumber)
+    CONSTRAINT fk_works_on_project FOREIGN KEY (Pno) REFERENCES project (Pnumber)
 );
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
@@ -87,10 +87,12 @@ DESC works_on;
 DESC dependent;
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
-SELECT * FROM information_schema.table_constraints
-	WHERE CONSTRAINT_SCHEMA = 'company';
-SELECT * FROM information_schema.referential_constraints
-	WHERE CONSTRAINT_SCHEMA = 'company';
+SELECT * 
+	FROM information_schema.table_constraints
+		WHERE CONSTRAINT_SCHEMA = 'company';
+SELECT * 
+	FROM information_schema.referential_constraints
+		WHERE CONSTRAINT_SCHEMA = 'company';
     
 ----------------------------------------------------------------------------------------------------------------------------------------------
 
