@@ -4,9 +4,9 @@ UPDATE, DROP, DELETE, ALTER
 */
 SELECT now() AS TIMESTAMP;
 
--- DROP DATABASE manipulation;
-CREATE DATABASE IF NOT EXISTS manipulation;
-USE manipulation;
+-- DROP DATABASE MANIPULATION;
+CREATE DATABASE IF NOT EXISTS MANIPULATION;
+USE MANIPULATION;
 
 CREATE TABLE bankAccounts (
 	Id_Account INT auto_increment PRIMARY KEY,
@@ -64,7 +64,10 @@ CREATE TABLE bankTransactions (
 			REFERENCES bankAccounts (Id_Account)
 );
 -- DROP TABLE bankTransactions;
-		
+SHOW TABLES;
+DESC bankAccounts;
+DESC bankClient;
+DESC bankTransactions;		
 
 
 

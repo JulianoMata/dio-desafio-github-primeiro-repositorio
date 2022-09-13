@@ -1,35 +1,43 @@
-show databases;
-create database if not exists first_example;
-use first_example;
-CREATE table person(
-	person_id smallint unsigned,
-	fname varchar(20),
-	lname varchar(20),
-	gender enum('M', 'F'),
-	birth_date date,
-	street varchar(30),
-	city varchar(20),
-	state varchar(20),
-	country varchar(20),
-	postal_code varchar(20),
-    constraint pk_person primary key (person_id)
+SHOW DATABASES;
+-- DROP DATABASE FIRST_EXAMPLE;
+CREATE DATABASE IF NOT EXISTS FIRST_EXAMPLE;
+USE FIRST_EXAMPLE;
+CREATE TABLE PERSON(
+	person_id SMALLINT UNSIGNED,
+	fname VARCHAR(20),
+	lname VARCHAR(20),
+	gender ENUM('M', 'F'),
+	birth_date DATE,
+	street VARCHAR(30),
+	city VARCHAR(20),
+	state VARCHAR(20),
+	country VARCHAR(20),
+	postal_code VARCHAR(20),
+    CONSTRAINT pk_person PRIMARY KEY (person_id)
 );
-desc person;
+DESC PERSON;
 
-create table favorite_food(
-	person_id smallint unsigned,
-    food varchar(20),
-    constraint pk_favorite_food primary key (person_id, food),
-    constraint fk_favorite_food_person_id foreign key (person_id) references person(person_id)
+CREATE TABLE FAVORITE_FOOD(
+	person_id SMALLINT UNSIGNED,
+    food VARCHAR(20),
+    CONSTRAINT pk_favorite_food PRIMARY KEY (person_id, food),
+    CONSTRAINT fk_favorite_food_person_id FOREIGN KEY (person_id) REFERENCES PERSON(person_id)
 );
-desc favorite_food;
-show databases;
-desc information_schema.table_constraints;
-select * from information_schema.table_constraints where constraint_schema = 'first_example';
+DESC FAVORITE_FOOD;
+SHOW DATABASES;
+DESC information_schema.table_constraints;
+SELECT * FROM information_schema.table_constraints WHERE CONSTRAINT_SCHEMA = 'FIRST_EXAMPLE';
 
-desc person;
+DESC PERSON;
 
-insert into person values 	('0', 'Adamastor', 'Fonseca', 'M', '1955-09-17',
+DELETE FROM PERSON WHERE person_id = 0 
+					OR person_id = 1
+                    OR person_id = 2
+                    OR person_id = 3
+                    OR person_id = 4
+                    OR person_id = 5;
+
+INSERT INTO person VALUES 	('0', 'Adamastor', 'Fonseca', 'M', '1955-09-17',
 							'Rua Sto Expedito', 'Sabará', 'MG', 'Brasil', '47280-000' ),
 							('1', 'Carolina', 'Silva', 'F', '1979-08-21',
 							'Rua Tal', 'Cidade J', 'RJ', 'Brasil', '26054-890' ),                            
@@ -41,28 +49,23 @@ insert into person values 	('0', 'Adamastor', 'Fonseca', 'M', '1955-09-17',
 							'Avenida Central', 'Cidade Z', 'AP', 'Brasil', '12310-530' ),
 							('5', 'Tibério', 'Machado', 'M', '1983-06-09',
 							'Pça Getúlio Vargas', 'Cidade Alta', 'PE', 'Brasil', '26320-110' );
-select * from person;
+SELECT * FROM PERSON;
 
-delete from person where person_id = 0 
-					or person_id = 1
-                    or person_id = 2
-                    or person_id = 3
-                    or person_id = 4
-                    or person_id = 5;
+DESC FAVORITE_FOOD;
+SELECT * FROM FAVORITE_FOOD;
+
+DELETE FROM FAVORITE_FOOD WHERE person_id = 0 
+						  OR person_id = 1
+                          OR person_id = 2
+                          OR person_id = 3
+                          OR person_id = 4;
                     
-desc favorite_food;
-select * from favorite_food;
-                    
-insert into favorite_food values (0, 'Arroz'),
+INSERT INTO FAVORITE_FOOD VALUES (0, 'Arroz'),
 								 (1, 'Feijão'),
                                  (2, 'Macarrão'),
                                  (3, 'Frango');
 
-delete from favorite_food where person_id = 0 
-						  or person_id = 1
-                          or person_id = 2
-                          or person_id = 3
-                          or person_id = 4;
+
 								 
                                  
 							

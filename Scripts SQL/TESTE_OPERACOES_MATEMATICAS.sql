@@ -3,8 +3,8 @@ Comandos baseados em Operações matemáticas:
 UNION, UNION ALL, INTERSECT e EXCEPT
 - *OBS.: Só funcionam com tabelas que tenham msm estrutura.
 */
-CREATE DATABASE IF NOT EXISTS teste;
-USE teste;
+CREATE DATABASE IF NOT EXISTS TESTE;
+USE TESTE;
 
 CREATE TABLE R (
 	A CHAR(2)
