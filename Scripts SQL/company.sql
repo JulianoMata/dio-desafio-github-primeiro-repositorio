@@ -16,8 +16,8 @@ SELECT *
 
 -- retirar ambiguidade através do "alias" ou "AS STATEMENT
 SELECT Dname, l.Dlocation AS Department_name
-	FROM DEPARTMENT AS d, DEPT_LOCATIONS AS l
-		WHERE d.Dnumber = l.Dnumber; 
+	FROM DEPARTMENT AS D, DEPT_LOCATIONS AS L
+		WHERE D.Dnumber = L.Dnumber; 
   
 -- Concatenando nomes  
 SELECT CONCAT(Fname, ' ', Lname) AS Employee
@@ -42,46 +42,46 @@ SELECT Fname, Lname, Salary, ROUND(Salary * 0.11, 2) AS INSS
 -- Definir um aumento a partir de uma consição
 
 SELECT * 
-	FROM EMPLOYEE AS e, WORKS_ON AS w, PROJECT AS p
-		WHERE (e.Ssn = w.Essn AND w.Pno = p.Pnumber);
+	FROM EMPLOYEE AS E, WORKS_ON AS W, PROJECT AS P
+		WHERE (E.Ssn = W.Essn AND W.Pno = P.Pnumber);
         
 SELECT CONCAT( Fname, ' ', Lname) AS Complete_Name, Salary, ROUND(Salary * 1.1, 2) AS Increased_Salary
-	FROM EMPLOYEE AS e, WORKS_ON AS w, PROJECT AS p
-		WHERE (e.Ssn = w.Essn AND w.Pno = p.Pnumber AND p.Pname = 'ProductX');
+	FROM EMPLOYEE AS E, WORKS_ON AS W, PROJECT AS P
+		WHERE (E.Ssn = W.Essn AND W.Pno = P.Pnumber AND P.Pname = 'ProductX');
         
  -- Legibilidade acertiva        
         
-SELECT CONCAT(e.Fname, ' ', e.Lname) AS Employee_Name, e.Address 
-	FROM EMPLOYEE AS e, DEPARTMENT AS d
+SELECT CONCAT(E.Fname, ' ', E.Lname) AS Employee_Name, E.Address 
+	FROM EMPLOYEE AS E, DEPARTMENT AS D
 		WHERE Dname = 'Research' AND Dnumber = Dno;
         
 
  
- -- Expressãoes e concatenação de strings
+ -- Expressões e concatenação de strings
  
  -- * OBS: Sempre que tiver alguma ddúvida use "DESC <nome da tabela>"
  
  -- Recuperando informações dos departamentos presentes em 'Stafford'
  
  SELECT Dname AS Department_Name, Mgr_Ssn AS Manager, Address 
-	FROM DEPARTMENT AS d, DEPT_LOCATIONS AS l, EMPLOYEE AS e
-		WHERE d.Dnumber = l.Dnumber AND Dlocation = 'Stafford';
+	FROM DEPARTMENT AS D, DEPT_LOCATIONS AS L, EMPLOYEE AS E
+		WHERE D.Dnumber = L.Dnumber AND Dlocation = 'Stafford';
 
 -- Recuperando todos os gerentes que trabalham em 'Stafford' 
        
 SELECT Dname AS Department_Name, CONCAT(Fname, ' ', Lname) AS Manager 
-	FROM DEPARTMENT AS d, DEPT_LOCATIONS AS l, EMPLOYEE AS e
-		WHERE d.Dnumber = l.Dnumber AND Dlocation = 'Stafford' AND Mgr_Ssn = e.Ssn;
+	FROM DEPARTMENT AS D, DEPT_LOCATIONS AS L, EMPLOYEE AS E
+		WHERE D.Dnumber = L.Dnumber AND Dlocation = 'Stafford' AND Mgr_Ssn = E.Ssn;
         
 -- Recuperando todos os gerentes, departamentos e seus nomes
         
 SELECT Dname AS Department_Name, CONCAT(Fname, ' ', Lname) AS Manager, Dlocation 
-	FROM DEPARTMENT AS d, DEPT_LOCATIONS AS l, EMPLOYEE AS e
-		WHERE d.Dnumber = l.Dnumber AND Mgr_Ssn = e.Ssn;
+	FROM DEPARTMENT AS D, DEPT_LOCATIONS AS L, EMPLOYEE AS E
+		WHERE D.Dnumber = L.Dnumber AND Mgr_Ssn = E.Ssn;
         
-SELECT Pnumber, p.Dnumber, Lname, Address, Bdate, p.Plocation 
-	FROM DEPARTMENT AS d, PROJECT AS p, EMPLOYEE AS e
-		WHERE d.Dnumber = p.Dnumber AND p.Plocation = 'Stafford' AND Mgr_Ssn = e.Ssn;
+SELECT Pnumber, P.Dnumber, Lname, Address, Bdate, P.Plocation 
+	FROM DEPARTMENT AS D, PROJECT AS P, EMPLOYEE AS E
+		WHERE D.Dnumber = P.Dnumber AND P.Plocation = 'Stafford' AND Mgr_Ssn = E.Ssn;
         
 --
 -- Operadores Lógicos: AND e OR

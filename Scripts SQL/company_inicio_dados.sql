@@ -8,7 +8,7 @@ SHOW TABLES;
 INSERT INTO EMPLOYEE VALUES ('John', 'B', 'Smith', 123456789, '1965-01-09', '731-Fondren-Houstoun-TX', 'M', 30000, NULL, 5),
 							('Franklin', 'T', 'Wong', 333445555, '1956-01-18', '3321-Voss-Houstoun-TX', 'M', 25000, 999887777, 4),
 							('Joyce', 'A', 'English', 453454531, '1970-09-24', '980-Dallas-Houston-TX', 'F', 35250, 987456321, 1),
-                            ('James', 'E', 'Wallace', 159357486, '1981-11-17', '291-Berry-Bellaire-TX', 'F', 35250, 067159424, 1);
+                            ('Carol', 'E', 'Wallace', 159357486, '1981-11-17', '291-Berry-Bellaire-TX', 'F', 35250, 067159424, 1);
 SELECT * FROM EMPLOYEE;
 
 INSERT INTO DEPENDENT VALUES (123456789, 'Alice', 'F', '1986-04-05', 'Daughter'),

@@ -68,19 +68,3 @@ SHOW TABLES;
 DESC bankAccounts;
 DESC bankClient;
 DESC bankTransactions;		
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
