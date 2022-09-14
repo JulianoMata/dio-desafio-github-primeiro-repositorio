@@ -3,6 +3,7 @@ Comandos baseados em Operações matemáticas:
 UNION, UNION ALL, INTERSECT e EXCEPT
 - *OBS.: Só funcionam com tabelas que tenham msm estrutura.
 */
+-- DROP DATABASE TESTE;
 CREATE DATABASE IF NOT EXISTS TESTE;
 USE TESTE;
 
