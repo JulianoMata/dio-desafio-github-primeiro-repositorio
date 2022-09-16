@@ -63,10 +63,10 @@ SELECT * FROM WORKS_ON;
 -- Gerente e seu departamento
 SELECT Ssn, Fname, Dname 
 	FROM EMPLOYEE e, DEPARTMENT d 
-		WHERE (e.Ssn = d.Mgr_ssn);
+		WHERE (e.Ssn = d.Mgr_Ssn);
 
 -- Empregados e dependentes
-SELECT Fname, Dependent_name, Relationship 
+SELECT Fname, Dependent_Name, Relationship 
 	FROM EMPLOYEE, DEPENDENT 
 		WHERE Essn = Ssn;
 

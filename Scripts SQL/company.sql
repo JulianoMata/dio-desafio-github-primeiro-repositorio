@@ -15,7 +15,7 @@ SELECT *
 	FROM DEPT_LOCATIONS;
 
 -- retirar ambiguidade através do "alias" ou "AS STATEMENT
-SELECT Dname, l.Dlocation AS Department_name
+SELECT Dname, l.Dlocation AS Department_Name
 	FROM DEPARTMENT AS D, DEPT_LOCATIONS AS L
 		WHERE D.Dnumber = L.Dnumber; 
   

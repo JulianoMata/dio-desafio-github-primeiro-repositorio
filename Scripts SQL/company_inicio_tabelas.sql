@@ -19,19 +19,19 @@ CREATE TABLE EMPLOYEE(
     Salary DECIMAL(10,2),
     Super_Ssn CHAR(9),
     Dno INT NOT NULL,
-    CONSTRAINT chk_salary_employee CHECK (Salary > 2000.0),
+    CONSTRAINT Chk_Salary_Employee CHECK (Salary > 2000.0),
     PRIMARY KEY(Ssn)
 );
 
 -- DROP TABLE DEPENDENT;
 CREATE TABLE DEPENDENT(
 	Essn CHAR(9) NOT NULL,
-    Dependent_name VARCHAR(15) NOT NULL,
+    Dependent_Name VARCHAR(15) NOT NULL,
     Sex CHAR, -- F OU M
     Bdate DATE,
     RelationSHIP VARCHAR(8),
-    PRIMARY KEY (Essn, Dependent_name),
-    CONSTRAINT fk_dependent FOREIGN KEY (Essn) REFERENCES EMPLOYEE (Ssn)
+    PRIMARY KEY (Essn, Dependent_Name),
+    CONSTRAINT Fk_Dependent FOREIGN KEY (Essn) REFERENCES EMPLOYEE (Ssn)
 ); 
 
 -- DROP TABLE DEPARTMENT;
@@ -39,12 +39,12 @@ CREATE TABLE DEPARTMENT(
 	Dname VARCHAR(15) NOT NULL,
     Dnumber INT NOT NULL,
     Mgr_Ssn CHAR(9),
-	Mgr_start_date DATE,
-    Dept_create_date DATE,
-    CONSTRAINT chk_date_dept CHECK (Dept_create_date < Mgr_start_date),
+	Mgr_Start_Date DATE,
+    Dept_Create_Date DATE,
+    CONSTRAINT Chk_Date_Dept CHECK (Dept_Create_Date < Mgr_Start_Date),
     PRIMARY KEY (Dnumber),
-    CONSTRAINT unique_name_dept UNIQUE (Dname),
-    CONSTRAINT fk_dept FOREIGN KEY (Mgr_Ssn) REFERENCES EMPLOYEE (Ssn)
+    CONSTRAINT Unique_Name_Dept UNIQUE (Dname),
+    CONSTRAINT Fk_Dept FOREIGN KEY (Mgr_Ssn) REFERENCES EMPLOYEE (Ssn)
 );
 
 -- DROP TABLE DEPT_LOCATIONS;
@@ -52,7 +52,7 @@ CREATE TABLE DEPT_LOCATIONS(
 	Dnumber INT NOT NULL,
     Dlocation VARCHAR(15) NOT NULL,
     PRIMARY KEY (Dnumber, Dlocation),
-    CONSTRAINT fk_dept_locations FOREIGN KEY (Dnumber) REFERENCES DEPARTMENT (Dnumber)
+    CONSTRAINT Fk_Dept_Locations FOREIGN KEY (Dnumber) REFERENCES DEPARTMENT (Dnumber)
 );
 
 -- DROP TABLE PROJECT;
@@ -62,8 +62,8 @@ CREATE TABLE PROJECT(
     Plocation VARCHAR(15),
     Dnumber INT NOT NULL,
     PRIMARY KEY (Pnumber),
-    CONSTRAINT unique_name_project UNIQUE (Pname),
-    CONSTRAINT fk_project FOREIGN KEY (Dnumber) REFERENCES DEPARTMENT (Dnumber)
+    CONSTRAINT Unique_Name_Project UNIQUE (Pname),
+    CONSTRAINT Fk_Project FOREIGN KEY (Dnumber) REFERENCES DEPARTMENT (Dnumber)
 );
  
 -- DROP TABLE WORKS_ON; 
@@ -72,8 +72,8 @@ CREATE TABLE WORKS_ON(
     Pno INT NOT NULL,
     Hours DECIMAL(3, 1) NOT NULL,
     PRIMARY KEY (Essn, Pno), 
-    CONSTRAINT fk_works_on_employee FOREIGN KEY (Essn) REFERENCES EMPLOYEE (Ssn),
-    CONSTRAINT fk_works_on_project FOREIGN KEY (Pno) REFERENCES PROJECT (Pnumber)
+    CONSTRAINT Fk_Works_On_Employee FOREIGN KEY (Essn) REFERENCES EMPLOYEE (Ssn),
+    CONSTRAINT Kk_Works_On_Project FOREIGN KEY (Pno) REFERENCES PROJECT (Pnumber)
 );
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
@@ -88,10 +88,10 @@ DESC DEPENDENT;
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
 SELECT * 
-	FROM information_schema.table_constraints
+	FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS
 		WHERE CONSTRAINT_SCHEMA = 'COMPANY';
 SELECT * 
-	FROM information_schema.referential_constraints
+	FROM INFORMATION_SCHEMA.REFERENTIAL_CONSTRAINTS
 		WHERE CONSTRAINT_SCHEMA = 'COMPANY';
     
 ----------------------------------------------------------------------------------------------------------------------------------------------
@@ -99,18 +99,18 @@ SELECT *
     
 -- Modificar uma "constraint": drop e add
 ALTER TABLE DEPARTMENT 
-	DROP CONSTRAINT fk_dept;
+	DROP CONSTRAINT Fk_Dept;
 
 ALTER TABLE DEPARTMENT 
-	ADD CONSTRAINT fk_dept FOREIGN KEY (Mgr_Ssn) REFERENCES EMPLOYEE (Ssn)
+	ADD CONSTRAINT Fk_Dept FOREIGN KEY (Mgr_Ssn) REFERENCES EMPLOYEE (Ssn)
     ON DELETE CASCADE
     ON UPDATE CASCADE;
     
-ALTER TABLE dept_locations 
-	DROP CONSTRAINT fk_dept_locations;
+ALTER TABLE DEPT_LOCATIONS 
+	DROP CONSTRAINT Fk_Dept_Locations;
  
-ALTER TABLE dept_locations
-	ADD CONSTRAINT fk_dept_locations FOREIGN KEY (Dnumber) REFERENCES DEPARTMENT (Dnumber)
+ALTER TABLE DEPT_LOCATIONS
+	ADD CONSTRAINT Fk_Dept_Locations FOREIGN KEY (Dnumber) REFERENCES DEPARTMENT (Dnumber)
     ON DELETE CASCADE
     ON UPDATE CASCADE;
 
