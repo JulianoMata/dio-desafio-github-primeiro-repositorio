@@ -1,6 +1,10 @@
-# Projeto E-commerce
+# Projeto E-commerce - Parte II
 
-## Descrição do Desafio
+## DIO - Bootcamp
+
+``Scripts SQL`` utilizando  ['MySQL Worbench'](https://www.mysql.com/products/workbench/)
+
+### Descrição do Desafio
 
 Replique a modelagem do projeto lógico de banco de dados para o cenário de `e-commerce`. 
 
@@ -51,10 +55,17 @@ Especifique ainda queries mais complexas. Crie queries SQL com as cláusulas aba
 
 ### Perguntas :
 
-1.  Quantos pedidos foram feitos por cada cliente?
-2.  Algum vendedor também é fornecedor?
-3.  Relação de produtos fornecedores e estoques;
-4.  Relação de nomes dos fornecedores e nomes dos produtos;
+1. Quantos pedidos foram feitos por cada cliente?
 
+2. Algum vendedor também é fornecedor?
 
+3. Relação de produtos fornecedores e estoques;
+
+4. Relação de nomes dos fornecedores e nomes dos produtos;
+
+   
+
+> ***Obs.: Fiz esta versão do Desafio em português.**
+>
+> 
 

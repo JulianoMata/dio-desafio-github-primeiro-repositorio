@@ -1,5 +1,5 @@
 
-# Projeto E-commerce 
+# Projeto E-commerce - Parte I
 ## DIO - Bootcamp
 
 ``Diagrama EER`` utilizando  ['MySQL Worbench'](https://www.mysql.com/products/workbench/)
