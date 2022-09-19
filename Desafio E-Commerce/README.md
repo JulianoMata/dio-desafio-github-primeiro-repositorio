@@ -2,7 +2,7 @@
 # Projeto E-commerce 
 ## DIO - Bootcamp
 
-``Diagrama ER`` utilizando  ['MySQL Worbench'](https://www.mysql.com/products/workbench/)
+``Diagrama EER`` utilizando  ['MySQL Worbench'](https://www.mysql.com/products/workbench/)
 
 Diagrama ER nada mais é do que modelo de dados conceptual que descreve os dados como sendo entidades, atributos e relacionamentos entre tabelas. Entidades são objetos ou conceitos do mundo real.
 
@@ -44,3 +44,4 @@ pagamento
 
 • ``Entrega`` – Possui status e código de rastreio
 
+-- Detalhes do Desafio DIO em PDF
