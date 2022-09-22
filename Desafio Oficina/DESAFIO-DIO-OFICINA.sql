@@ -431,11 +431,11 @@ SELECT * FROM OSServico;
 
 -- 1ª Calcule a idade, retorne nome completo, endereço e contatos dos cliente 'pessoa física' ordenando pelo mais velho.
 
-SELECT CONCAT(nomeClientePF, ' ', sobreNomeClientePF) AS Cliente,
+SELECT CONCAT(C_PF.nomeClientePF, ' ', C_PF.sobreNomeClientePF) AS Cliente,
        TIMESTAMPDIFF(YEAR, C_PF.dataNascimentoClientePF, NOW()) AS Idade,
-       enderecoCliente AS Endereço,
-       contatoCliente AS Contato,
-       emailCliente AS Email
+       C.enderecoCliente AS Endereço,
+       C.contatoCliente AS Contato,
+       C.emailCliente AS Email
 FROM
    ClientePF C_PF, Cliente C
    WHERE C.idCliente = C_PF.idClientePF_cliente
@@ -458,31 +458,31 @@ FROM
 
 SELECT  C_PF.idClientePF_cliente AS ID,
         CONCAT(C_PF.nomeClientePF, ' ', sobreNomeClientePF) AS Cliente,
-        Aut.marcaAutomovel AS Marca, 
-        Aut.modeloAutomovel AS Modelo, 
-        Aut.tipoAutomovel AS Tipo,
-        nomeEquipe AS Equipe,
-        setorEquipe AS Setor
-	FROM Automovel Aut
+        A.marcaAutomovel AS Marca, 
+        A.modeloAutomovel AS Modelo, 
+        A.tipoAutomovel AS Tipo,
+        E.nomeEquipe AS Equipe,
+        E.setorEquipe AS Setor
+	FROM Automovel A
 		INNER JOIN ClientePF C_PF
-            ON Aut.idAutomovel_Cliente = C_PF.idClientePF_Cliente
+            ON A.idAutomovel_Cliente = C_PF.idClientePF_Cliente
         INNER JOIN Equipe E
-            ON Aut.idAutomovel = E.idEquipe_Automovel;
+            ON A.idAutomovel = E.idEquipe_Automovel;
             
 -- Cliente PJ
             
 SELECT  C_PJ.idClientePJ_Cliente AS ID,
         C_PJ.razaoSocialClientePJ AS Cliente,
-        Aut.marcaAutomovel AS Marca, 
-        Aut.modeloAutomovel AS Modelo, 
-        Aut.tipoAutomovel AS Tipo,
-        nomeEquipe AS Equipe,
-        setorEquipe AS Setor
-	FROM Automovel Aut
+        A.marcaAutomovel AS Marca, 
+        A.modeloAutomovel AS Modelo, 
+        A.tipoAutomovel AS Tipo,
+        E.nomeEquipe AS Equipe,
+        E.setorEquipe AS Setor
+	FROM Automovel A
 		INNER JOIN ClientePJ C_PJ
-            ON Aut.idAutomovel_Cliente = C_PJ.idClientePJ_Cliente
+            ON A.idAutomovel_Cliente = C_PJ.idClientePJ_Cliente
         INNER JOIN Equipe E
-            ON Aut.idAutomovel = E.idEquipe_Automovel;
+            ON A.idAutomovel = E.idEquipe_Automovel;
          
         
 -- 4ª Relação Cliente PF, serviço, pagamento e OS(data Conclusão)
@@ -588,7 +588,31 @@ SELECT CONCAT(F.nomeFuncionario, ' ', F.sobrenomeFuncionario) AS 'Funcionário',
                 ON F.idFuncionario_Equipe = E.idEquipe
                     WHERE F.sexoFuncionario <> 'M'
                         ORDER BY Idade DESC;
-           
+
+-- 7ª Retorna
+-- Like - endereço cliente em Belo Horizonte
+-- Group By - cor automóvel
+-- Having  - automóvel 'Branco'                      
+
+                        
+SELECT A.modeloAutomovel AS Modelo,
+       A.marcaAutomovel AS Marca,
+       S.descricaoServico AS 'Serviço',
+       C.contatoCliente AS Contato,
+       C.enderecoCliente AS 'Endereço Cliente'
+       FROM Automovel A
+            INNER JOIN Cliente C
+                ON C.idCliente = A.idAutomovel_Cliente
+            INNER JOIN Equipe E
+                ON E.idEquipe_Automovel = A.idAutomovel
+            INNER JOIN Servico S 
+                ON S.idServico_Cliente = C.idCliente
+            INNER JOIN Funcionario F 
+                ON F.idFuncionario_Equipe = E.idEquipe
+                WHERE C.enderecoCliente LIKE '%Bel%'
+                    GROUP BY A.corAutomovel
+                    HAVING A.corAutomovel = 'branco';
+
 
 
 
