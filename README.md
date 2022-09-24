@@ -1,4 +1,4 @@
-# Desafio de Projeto DIO - Database Experience
+# Bootcamp DIO - Database Experience
 
 Repositório criado para o Desafio de Projeto.
 
